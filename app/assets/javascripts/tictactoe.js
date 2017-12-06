@@ -9,4 +9,6 @@ $(document).ready(function() {
   attachListeners();
 });
 
+// turn is already 0, so it's an odd number.
+//'X' when the turn variable is even and 'O' when it is odd.
 var player = () => turn % 2 ? 'O' : 'X'; 
