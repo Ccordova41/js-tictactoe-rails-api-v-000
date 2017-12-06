@@ -24,3 +24,26 @@ function updateState(square) {
 function setMessage(string) {
   $('#message').text(string);
 }
+
+// Returns true if the current board contains any winning combinations
+// (three X or O tokens in a row, vertically, horizontally, or diagonally).
+// Otherwise, returns false.
+// If there is a winning combination on the board, checkWinner() should invoke
+// setMessage(), passing in the appropriate string based on who won: 'Player X Won!'
+//  or 'Player O Won!'
+
+function checkWinner() {
+  var board = {};
+  var winner = false;
+
+  $('td').text((index, square) => board[index] = square);
+
+  WINNING_COMBOS.some(function(combo) {
+    if (board[combo[0]] !== "" && board[combo[0]] === board[combo[1]] && board[combo[1]] === board[combo[2]]) {
+      setMessage(`Player ${board[combo[0]]} Won!`);
+      return winner = true;
+    }
+  });
+
+  return winner;
+}
