@@ -11,4 +11,11 @@ $(document).ready(function() {
 
 // turn is already 0, so it's an odd number.
 //'X' when the turn variable is even and 'O' when it is odd.
-var player = () => turn % 2 ? 'O' : 'X'; 
+var player = () => turn % 2 ? 'O' : 'X';
+
+//Invokes player() and adds the returned string ('X' or 'O') to the
+//clicked square on the game board.
+function updateState(square) {
+  var token = player();
+  $(square).text(token);
+}
