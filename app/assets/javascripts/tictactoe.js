@@ -47,3 +47,20 @@ function checkWinner() {
 
   return winner;
 }
+
+// Increments the turn variable by 1.
+// Invokes the updateState() function, passing it the element that was clicked.
+// Invokes checkWinner() to determine whether the move results in a winning play.
+
+function doTurn(square) {
+  updateState(square);
+  turn++;
+  if (checkWinner()) {
+    saveGame();
+    resetBoard();
+  } else if (turn === 9) {
+    setMessage("Tie game.");
+    saveGame();
+    resetBoard();
+  }
+}
